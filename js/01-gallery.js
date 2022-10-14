@@ -8,9 +8,11 @@ mainGallery.addEventListener("click", onClick);
 
 function onClick(event) {
     event.preventDefault();
+    const instance = basicLightbox.create(`<img src="${event.target.dataset.source}">`)
     if (event.target.nodeName !== "IMG") {
         return
     } 
+    instance.show();
 }
 
 
