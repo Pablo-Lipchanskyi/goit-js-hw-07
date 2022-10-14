@@ -8,7 +8,7 @@ mainGallery.addEventListener("click", onClick);
 
 function onClick(event) {
     event.preventDefault();
-    const instance = basicLightbox.create(`<img src="${event.target.dataset.source}">`)
+    const instance = basicLightbox.create(`<div class="modal"><img src="${event.target.dataset.source}" width="600" height="800"></div>`)
     if (event.target.nodeName !== "IMG") {
         return
     } 
@@ -19,7 +19,7 @@ function onClick(event) {
 
 
 function galleryItemsCreate(galleryItems) {
-    return galleryItems.map(
+    return [...galleryItems].map(
         ({ description, preview, original }) =>
             `<a class="gallery__link" href="${original}">
             <img class="gallery__image"
