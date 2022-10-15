@@ -8,13 +8,16 @@ mainGallery.addEventListener("click", onClick);
 
 function onClick(event) {
     event.preventDefault();
-    const instance = basicLightbox.create(`<div class="modal"><img src="${event.target.dataset.source}" width="800" height="800"></div>`)
+    
     if (event.target.nodeName !== "IMG") {
         return
     } 
-    instance.show();
 }
-
+const lightbox = new SimpleLightbox(".gallery a", {
+    captionsData : "alt",
+    captionsDelay : "250",
+})
+lightbox.open
 
 
 
